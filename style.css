@@ -1,78 +1,99 @@
-/* ==== GENERAL STYLING ==== */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top, #150515, #060008);
-  color: #ffe4f2;
-  overflow-x: hidden;
+  color: #ffd6e8;
 }
 
-.top-header {
+/* Romantic Background */
+.romantic-bg {
+  position: fixed;
+  inset: 0;
+  background: url("https://i.ibb.co/fMhV4pW/rose-dark-wallpaper.jpg") center/cover no-repeat;
+  filter: brightness(0.38) blur(2px);
+  z-index: -1;
+}
+
+/* Profile */
+.profile {
   text-align: center;
   padding: 40px 20px;
 }
 
-.title {
-  font-size: 38px;
-  font-weight: 700;
-  text-shadow: 0 0 18px #ff80b3;
+.profile-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid #ff87b8;
+  box-shadow: 0 0 25px #ff589f;
 }
 
-.subtitle {
-  color: #d4a6b9;
-  font-size: 15px;
+.profile-name {
+  font-size: 32px;
+  margin: 12px 0 4px;
+  text-shadow: 0 0 18px #ff6fa3;
 }
 
-/* ==== GALLERY GRID ==== */
-.gallery {
+.profile-desc {
+  color: #e9b9c9;
+}
+
+/* Albums */
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 30px;
+  text-shadow: 0 0 12px #ff78a2;
+}
+
+.albums {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
   gap: 18px;
-  padding: 30px;
+  padding: 25px;
 }
 
-.card {
-  position: relative;
+.album-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 22px;
   border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  transform: scale(1);
-  transition: 0.4s ease;
-  box-shadow: 0 0 18px rgba(255, 125, 175, 0.2),
-              0 0 8px rgba(0,0,0,0.5);
+  text-decoration: none;
+  color: #ffd6e8;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 120, 160, 0.25);
 }
 
-.card:hover {
+.album-card:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 35px rgba(255, 125, 175, 0.45);
+  background: rgba(255,255,255,0.14);
+  box-shadow: 0 0 35px rgba(255, 120, 160, 0.5);
 }
 
-.card img {
+/* Album page gallery */
+.gallery {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 15px;
+}
+
+.gallery img {
   width: 100%;
   height: 100%;
+  border-radius: 14px;
   object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 120, 160, 0.3);
 }
 
-/* ==== CAPTION ==== */
-.caption {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-  color: #ffd6e8;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.4s;
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 120, 160, 0.6);
 }
 
-.card:hover .caption {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ==== LIGHTBOX ==== */
+/* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -80,43 +101,20 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(12px);
-  animation: fadeIn 0.3s;
 }
 
 .lightbox img {
-  max-width: 85vw;
-  max-height: 85vh;
-  border-radius: 16px;
-  box-shadow: 0 0 25px rgba(255, 150, 190, 0.55);
-  animation: zoom 0.4s ease;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 18px;
+  box-shadow: 0 0 28px #ff6f9f;
 }
 
 #close-btn {
   position: absolute;
-  top: 25px;
-  right: 35px;
+  top: 20px;
+  right: 40px;
   font-size: 45px;
   cursor: pointer;
-  color: #fff;
-  text-shadow: 0 0 10px #ff7ba1;
+  color: white;
 }
-
-/* Nav buttons */
-#prev, #next {
-  position: absolute;
-  top: 50%;
-  font-size: 55px;
-  color: #fff;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-shadow: 0 0 10px #ff7ba1;
-}
-
-#prev { left: 30px; }
-#next { right: 30px; }
-
-/* Animations */
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-@keyframes zoom { from {transform:scale(0.8);} to {transform:scale(1);} }
