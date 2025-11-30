@@ -12,50 +12,36 @@
 
 <header>
     <h1 class="title">Romantic Dark Memories</h1>
-    <p class="subtitle">A collection of love-filled moments</p>
+    <p class="subtitle">Feel the moments again and again ❤️</p>
 </header>
 
 <section class="profile">
     <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Profile">
     <h2>John & Rose</h2>
-    <p>Together in every heartbeat ❤️</p>
+    <p>Forever in love, forever in memories</p>
 </section>
 
 <h2 class="album-heading">Our Albums</h2>
 
 <div class="album-container">
-
-    <!-- Album 1 -->
-    <div class="album" onclick="openAlbum(1)">
-        <h3>Romantic Moments</h3>
-    </div>
-
-    <!-- Album 2 -->
-    <div class="album" onclick="openAlbum(2)">
-        <h3>Couple Travel</h3>
-    </div>
-
-    <!-- Album 3 -->
-    <div class="album" onclick="openAlbum(3)">
-        <h3>Dates & Nights</h3>
-    </div>
-
-    <!-- Album 4 -->
-    <div class="album" onclick="openAlbum(4)">
-        <h3>Happy Days</h3>
-    </div>
-
-    <!-- Album 5 -->
-    <div class="album" onclick="openAlbum(5)">
-        <h3>Forever Love</h3>
-    </div>
-
+    <div class="album" onclick="openAlbum(1)"><h3>Romantic Moments</h3></div>
+    <div class="album" onclick="openAlbum(2)"><h3>Couple Travel</h3></div>
+    <div class="album" onclick="openAlbum(3)"><h3>Dates & Nights</h3></div>
+    <div class="album" onclick="openAlbum(4)"><h3>Happy Days</h3></div>
+    <div class="album" onclick="openAlbum(5)"><h3>Forever Love</h3></div>
 </div>
 
 <!-- Album Viewer -->
 <div id="albumViewer" class="viewer hidden">
     <span class="close" onclick="closeAlbum()">&times;</span>
     <div id="albumImages" class="images"></div>
+</div>
+
+<!-- Fullscreen Lightbox -->
+<div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img">
+    <div class="caption" id="lightbox-caption"></div>
 </div>
 
 <script src="script.js"></script>
