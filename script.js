@@ -1,42 +1,23 @@
-// Read album ID from URL
-const params = new URLSearchParams(window.location.search);
-const albumID = Number(params.get("album"));
-
-// Titles for each album
-const albumTitles = {
-  1: "💗 Album 1: Love Moments",
-  2: "🌙 Album 2: Moonlight Romance",
-  3: "🌹 Album 3: Red Rose Nights",
-  4: "✨ Album 4: Magical Love",
-  5: "🔥 Album 5: Deep Passion"
+const albums = {
+    1: ["1","2","3","4","5","6","7","8","9","10"],
+    2: ["11","12","13","14","15","16","17","18","19","20"],
+    3: ["21","22","23","24","25","26","27","28","29","30"],
+    4: ["31","32","33","34","35","36","37","38","39","40"],
+    5: ["41","42","43","44","45","46","47","48","49","50"]
 };
 
-// Apply album name
-const titleEl = document.getElementById("album-title");
-if (titleEl) titleEl.textContent = albumTitles[albumID];
+function openAlbum(id) {
+    document.getElementById("albumViewer").classList.remove("hidden");
+    const container = document.getElementById("albumImages");
+    container.innerHTML = "";
 
-// Generate 10 images per album
-const gallery = document.getElementById("gallery");
-if (gallery) {
-  for (let i = 1; i <= 10; i++) {
-    const img = document.createElement("img");
-    img.src = `https://picsum.photos/seed/${albumID}-${i}/900/700`;
-    img.onclick = () => openLightbox(img.src);
-    gallery.appendChild(img);
-  }
+    albums[id].forEach(num => {
+        container.innerHTML += `
+            <img src="https://picsum.photos/seed/${num}/800/600">
+        `;
+    });
 }
 
-// Lightbox
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.getElementById("close-btn");
-
-function openLightbox(src) {
-  lightbox.style.display = "flex";
-  lightboxImg.src = src;
+function closeAlbum() {
+    document.getElementById("albumViewer").classList.add("hidden");
 }
-
-closeBtn.onclick = () => (lightbox.style.display = "none");
-lightbox.onclick = (e) => {
-  if (e.target === lightbox) lightbox.style.display = "none";
-};
