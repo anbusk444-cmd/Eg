@@ -1,9 +1,10 @@
+// Albums (50 total images)
 const albums = {
-    1: ["1","2","3","4","5","6","7","8","9","10"],
-    2: ["11","12","13","14","15","16","17","18","19","20"],
-    3: ["21","22","23","24","25","26","27","28","29","30"],
-    4: ["31","32","33","34","35","36","37","38","39","40"],
-    5: ["41","42","43","44","45","46","47","48","49","50"]
+    1: ["Love", "Smile", "Together", "Heart", "Kiss", "Moment", "Dream", "Night", "Warm", "Forever"],
+    2: ["Travel1","Travel2","Travel3","Travel4","Travel5","Travel6","Travel7","Travel8","Travel9","Travel10"],
+    3: ["Date1","Date2","Date3","Date4","Date5","Date6","Date7","Date8","Date9","Date10"],
+    4: ["Happy1","Happy2","Happy3","Happy4","Happy5","Happy6","Happy7","Happy8","Happy9","Happy10"],
+    5: ["Love1","Love2","Love3","Love4","Love5","Love6","Love7","Love8","Love9","Love10"]
 };
 
 function openAlbum(id) {
@@ -11,13 +12,24 @@ function openAlbum(id) {
     const container = document.getElementById("albumImages");
     container.innerHTML = "";
 
-    albums[id].forEach(num => {
+    albums[id].forEach(name => {
         container.innerHTML += `
-            <img src="https://picsum.photos/seed/${num}/800/600">
+            <img src="https://picsum.photos/seed/${name}/900/700" onclick="openLightbox('${name}')">
         `;
     });
 }
 
 function closeAlbum() {
     document.getElementById("albumViewer").classList.add("hidden");
+}
+
+// Lightbox viewer
+function openLightbox(name) {
+    document.getElementById("lightbox").classList.remove("hidden");
+    document.getElementById("lightbox-img").src = `https://picsum.photos/seed/${name}/1500/1000`;
+    document.getElementById("lightbox-caption").innerHTML = name;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").classList.add("hidden");
 }
