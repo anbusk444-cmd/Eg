@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Romantic Profile & Albums</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Dark Album</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="romantic-bg"></div>
+<div class="bg"></div>
 
-<header class="profile">
-  <img src="https://i.ibb.co/4J2Yv7c/profile.jpg" class="profile-img">
-  <h1 class="profile-name">Your Name</h1>
-  <p class="profile-desc">Welcome to my romantic photo collection ❤️</p>
+<header>
+    <h1 class="title">Romantic Dark Memories</h1>
+    <p class="subtitle">A collection of love-filled moments</p>
 </header>
 
-<section class="albums-section">
-  <h2 class="section-title">My Romantic Albums</h2>
-
-  <div class="albums">
-
-    <a href="album.html?album=1" class="album-card">
-      <h3>💗 Album 1: Love Moments</h3>
-    </a>
-
-    <a href="album.html?album=2" class="album-card">
-      <h3>🌙 Album 2: Moonlight Romance</h3>
-    </a>
-
-    <a href="album.html?album=3" class="album-card">
-      <h3>🌹 Album 3: Red Rose Nights</h3>
-    </a>
-
-    <a href="album.html?album=4" class="album-card">
-      <h3>✨ Album 4: Magical Love</h3>
-    </a>
-
-    <a href="album.html?album=5" class="album-card">
-      <h3>🔥 Album 5: Deep Passion</h3>
-    </a>
-
-  </div>
+<section class="profile">
+    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Profile">
+    <h2>John & Rose</h2>
+    <p>Together in every heartbeat ❤️</p>
 </section>
 
+<h2 class="album-heading">Our Albums</h2>
+
+<div class="album-container">
+
+    <!-- Album 1 -->
+    <div class="album" onclick="openAlbum(1)">
+        <h3>Romantic Moments</h3>
+    </div>
+
+    <!-- Album 2 -->
+    <div class="album" onclick="openAlbum(2)">
+        <h3>Couple Travel</h3>
+    </div>
+
+    <!-- Album 3 -->
+    <div class="album" onclick="openAlbum(3)">
+        <h3>Dates & Nights</h3>
+    </div>
+
+    <!-- Album 4 -->
+    <div class="album" onclick="openAlbum(4)">
+        <h3>Happy Days</h3>
+    </div>
+
+    <!-- Album 5 -->
+    <div class="album" onclick="openAlbum(5)">
+        <h3>Forever Love</h3>
+    </div>
+
+</div>
+
+<!-- Album Viewer -->
+<div id="albumViewer" class="viewer hidden">
+    <span class="close" onclick="closeAlbum()">&times;</span>
+    <div id="albumImages" class="images"></div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
