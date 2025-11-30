@@ -1,120 +1,145 @@
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  color: #ffd6e8;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow-x: hidden;
 }
 
-/* Romantic Background */
-.romantic-bg {
-  position: fixed;
-  inset: 0;
-  background: url("https://i.ibb.co/fMhV4pW/rose-dark-wallpaper.jpg") center/cover no-repeat;
-  filter: brightness(0.38) blur(2px);
-  z-index: -1;
+/* Background */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #3d002b, #000);
+    z-index: -1;
+    overflow: hidden;
 }
 
-/* Profile */
+/* Floating particles */
+.bg::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('https://i.imgur.com/6o5B3c1.png');
+    opacity: 0.2;
+    animation: float 60s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-500px,-500px); }
+}
+
+header {
+    text-align: center;
+    padding: 40px 10px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 700;
+    animation: fadeIn 2s ease;
+}
+
+.subtitle {
+    opacity: 0.7;
+    animation: fadeIn 3s ease;
+}
+
+/* Profile section */
 .profile {
-  text-align: center;
-  padding: 40px 20px;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 2s ease;
 }
 
-.profile-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid #ff87b8;
-  box-shadow: 0 0 25px #ff589f;
+.profile img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff005d;
+    box-shadow: 0 0 20px #ff005d;
 }
 
-.profile-name {
-  font-size: 32px;
-  margin: 12px 0 4px;
-  text-shadow: 0 0 18px #ff6fa3;
-}
-
-.profile-desc {
-  color: #e9b9c9;
+.album-heading {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 28px;
 }
 
 /* Albums */
-.section-title {
-  text-align: center;
-  font-size: 26px;
-  margin-top: 30px;
-  text-shadow: 0 0 12px #ff78a2;
+.album-container {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
 }
 
-.albums {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 18px;
-  padding: 25px;
+.album {
+    background: rgba(255,255,255,0.06);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px #000;
 }
 
-.album-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 22px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #ffd6e8;
-  text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 120, 160, 0.25);
+.album:hover {
+    transform: scale(1.08);
+    background: rgba(255, 0, 91, 0.2);
+    box-shadow: 0 0 20px #ff005d;
 }
 
-.album-card:hover {
-  transform: scale(1.06);
-  background: rgba(255,255,255,0.14);
-  box-shadow: 0 0 35px rgba(255, 120, 160, 0.5);
+/* Album viewer */
+.viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.92);
+    display: flex;
+    flex-direction: column;
 }
 
-/* Album page gallery */
-.gallery {
-  padding: 25px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-  gap: 15px;
+.viewer.hidden {
+    display: none;
 }
 
-.gallery img {
-  width: 100%;
-  height: 100%;
-  border-radius: 14px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 120, 160, 0.3);
+.close {
+    font-size: 40px;
+    cursor: pointer;
+    margin: 20px;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(255, 120, 160, 0.6);
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
 }
 
-/* Lightbox */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.88);
-  display: none;
-  align-items: center;
-  justify-content: center;
+.images img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-.lightbox img {
-  max-width: 80vw;
-  max-height: 80vh;
-  border-radius: 18px;
-  box-shadow: 0 0 28px #ff6f9f;
+.images img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px #ff005d;
 }
 
-#close-btn {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  font-size: 45px;
-  cursor: pointer;
-  color: white;
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
